@@ -59,8 +59,8 @@ Example disease categories:
 
 ![prediction Page2](prediction%20output%202.png)
 
-![confusion matrix Page1](confusion%matrix%20output%201.png)
+![confusion matrix Page1](confusion%20matrix%20output%201.png)
 
-![confusion matrix Page2](confusion%matrix%20output%202.png)
+![confusion matrix Page2](confusion%20matrix%20output%202.png)
 
 ![prediction history Page](prediction%20history%20page.png)
