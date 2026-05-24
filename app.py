@@ -4,26 +4,15 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 import pickle
 
-# =========================
-# SIMPLE USER DATABASE (in memory)
-# =========================
 if "users" not in st.session_state:
-    st.session_state.users = {"admin": "1234"}  # default user
+    st.session_state.users = {"admin": "1234"}  
 
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
 if "page" not in st.session_state:
     st.session_state.page = "login"
-
-# =========================
-# CONFIG
-# =========================
-IMG_SIZE = 224  # match training size
-
-# =========================
-# LOAD MODEL & CLASSES
-# =========================
+IMG_SIZE = 224 
 model = load_model("fine_tuned_model.keras")
 
 with open("class_names.pkl", "rb") as f:
@@ -33,20 +22,12 @@ if isinstance(class_names, dict):
     class_names = [k for k,v in sorted(class_names.items(), key=lambda item: item[1])]
 if isinstance(class_names, np.ndarray):
     class_names = class_names.tolist()
-
-# =========================
-# HELPER FUNCTIONS
-# =========================
 def preprocess_image(img_file, target_size=(IMG_SIZE, IMG_SIZE)):
     img = Image.open(img_file).convert("RGB")
     img = img.resize(target_size, Image.Resampling.LANCZOS)
     img_array = np.array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
     return img_array
-
-# =========================
-# LOGIN PAGE
-# =========================
 def login_page():
     st.title("🔐 Login")
 
@@ -65,9 +46,6 @@ def login_page():
         st.session_state.page = "signup"
         st.rerun()
 
-# =========================
-# SIGNUP PAGE
-# =========================
 def signup_page():
     st.title("📝 Signup")
 
@@ -89,10 +67,6 @@ def signup_page():
         st.session_state.page = "login"
         st.rerun()
 
-
-# =========================
-# MAIN APP (YOUR ORIGINAL CODE)
-# =========================
 def main_app():
     st.title("🌾 Rice Leaf Disease Predictor")
     st.write("Upload an image of a rice leaf and the model will predict its disease.")
@@ -114,10 +88,6 @@ def main_app():
         confidence = pred[0][top_idx] * 100
 
         st.write(f"### Prediction: {class_names[top_idx]} ({confidence:.2f}% confidence)")
-
-# =========================
-# APP FLOW
-# =========================
 if not st.session_state.logged_in:
     if st.session_state.page == "login":
         login_page()
