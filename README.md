@@ -53,6 +53,14 @@ Example disease categories:
 ### 🔐 Login Page
 ![Signup Page](signup%20page.png)
 
-![Login Page](login%20page.png)
+![navigation Page](navigation%20menu.png)
 
+![prediction Page1](prediction%20output%201.png)
 
+![prediction Page2](prediction%20output%202.png)
+
+![confusion matrix Page1](confusion%matrix%20output%201.png)
+
+![confusion matrix Page2](confusion%matrix%20output%202.png)
+
+![prediction history Page](prediction%20history%20page.png)
