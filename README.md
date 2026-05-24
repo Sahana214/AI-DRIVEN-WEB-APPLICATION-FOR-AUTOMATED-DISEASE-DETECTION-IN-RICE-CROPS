@@ -51,6 +51,7 @@ Example disease categories:
 ## 📸 Application Screenshots
 
 ### 🔐 Login Page
+![signup Page](signup page.png)
+![Login Page](login page.png)
 
-![Login Page](loginpage.png)
 
